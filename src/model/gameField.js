@@ -84,11 +84,20 @@ GameField.prototype.getBlackPlayer = function() {
     return this.blackPlayer;
 };
 
+GameField.prototype.pass = function() {
+    whiteIsNext = !whiteIsNext;
+
+    if (pass) {
+        return true;
+    }
+    pass = true;
+
+    return !pass;
+};
+
 function moveEnd() {
     // TODO: implement
 }
-
-
 
 module.exports = GameField;
 //.createGameField(9);
