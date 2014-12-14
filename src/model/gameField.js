@@ -95,6 +95,11 @@ GameField.prototype.pass = function() {
     return !pass;
 };
 
+GameField.prototype.getGameFieldSize = function() {
+    // TODO might be length x length
+    return this.gameField.length;
+};
+
 function moveEnd() {
     // TODO: implement
 }
