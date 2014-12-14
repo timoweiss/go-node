@@ -1,6 +1,7 @@
 'use strict';
 
 var Cell = require('./../model/cell');
+var Player = require('./../model/player');
 
 // bool to inicate who's next
 var whiteIsNext = false;
@@ -9,8 +10,8 @@ var whiteIsNext = false;
 var pass = false;
 
 function GameField() {
-    this.whitePlayer = null;
-    this.blackPlayer = null;
+    this.whitePlayer = new Player();
+    this.blackPlayer = new Player();
     this.gameField = [];
 }
 
