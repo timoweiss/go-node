@@ -3,13 +3,14 @@
 var GameField = require('./../model/gameField');
 
 var gameField = null;
+var operate = false;
 
 function Controller() {
-    this.operate = true;
+    operate = true;
 }
 
 Controller.prototype.createField = function(lenght) {
-    this.operate = true;
+    operate = true;
     gameField = new GameField(lenght);
 };
 
@@ -30,4 +31,30 @@ Controller.prototype.getWhitePlayerScore = function() {
 
 Controller.prototype.getBlackPlayerScore = function() {
     return gameField.getBlackPlayer().getScore();
+};
+
+Controller.prototype.getCellStatus = function(x, y) {
+    return gameField.getCellStatus(x, y);
+};
+
+Controller.prototype.getNext = function() {
+    return gameField.getNext();
+};
+
+Controller.prototype.getGameFieldSize = function() {
+    return gameField.getGameFieldSize();
+};
+
+Controller.prototype.stop = function() {
+    operate = false;
+};
+
+Controller.prototype.pass = function() {
+    if (!operate) {
+        //statusLine = "Game already closed, not allowed to pass";
+        //notifyObservers();
+        return false;
+    }
+    var pass = gamefield.pass();
+    return pass;
 };
