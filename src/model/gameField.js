@@ -76,9 +76,18 @@ GameField.prototype.rememberMe = function(x, y) {
     this.gameField[x][y].setChecked();
 };
 
+GameField.prototype.getWhitePlayer = function() {
+    return this.whitePlayer;
+};
+
+GameField.prototype.getBlackPlayer = function() {
+    return this.blackPlayer;
+};
+
 function moveEnd() {
     // TODO: implement
 }
+
 
 
 module.exports = GameField;
