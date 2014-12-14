@@ -2,7 +2,6 @@
 
 var GameField = require('./../model/gameField');
 
-var gameField = null;
 var operate = false;
 
 function Controller() {
@@ -11,7 +10,8 @@ function Controller() {
 
 Controller.prototype.createField = function(lenght) {
     operate = true;
-    gameField = new GameField(lenght);
+    this.gameField = new GameField();
+    this.gameField.createGameField(lenght)
 };
 
 Controller.prototype.setStone = function(x, y) {
@@ -19,30 +19,30 @@ Controller.prototype.setStone = function(x, y) {
         console.log("Game already done", "unable to set stone");
         return false;
     }
-    var next = gameField.getNext();
-    if (gameField.setStone(x, y)) {
+    var next = this.gameField.getNext();
+    if (this.gameField.setStone(x, y)) {
         console.log("set ", next, " at:", x, y);
     }
 };
 
 Controller.prototype.getWhitePlayerScore = function() {
-    return gameField.getWhitePlayer().getScore();
+    return this.gameField.getWhitePlayer().getScore();
 };
 
 Controller.prototype.getBlackPlayerScore = function() {
-    return gameField.getBlackPlayer().getScore();
+    return this.gameField.getBlackPlayer().getScore();
 };
 
 Controller.prototype.getCellStatus = function(x, y) {
-    return gameField.getCellStatus(x, y);
+    return this.gameField.getCellStatus(x, y);
 };
 
 Controller.prototype.getNext = function() {
-    return gameField.getNext();
+    return this.gameField.getNext();
 };
 
 Controller.prototype.getGameFieldSize = function() {
-    return gameField.getGameFieldSize();
+    return this.gameField.getGameFieldSize();
 };
 
 Controller.prototype.stop = function() {
@@ -55,6 +55,9 @@ Controller.prototype.pass = function() {
         //notifyObservers();
         return false;
     }
-    var pass = gamefield.pass();
+    var pass = this.gamefield.pass();
     return pass;
 };
+
+
+module.exports = Controller;
