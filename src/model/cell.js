@@ -37,4 +37,13 @@ Cell.prototype.toString = function() {
     return this.choords.x + '|' + this.choords.y;
 };
 
+Cell.prototype.compareTo = function(cell) {
+
+    if (this.coords.x == cell.coords.x && this.coords.y == cell.coords.y) {
+        return 0;
+    } else {
+        return -1;
+    }
+};
+
 module.exports = Cell;
