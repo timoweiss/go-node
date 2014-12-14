@@ -1,8 +1,8 @@
 'use strict';
 
-function Cell(x, y) {
+function Cell(x, y, status) {
     this.checked = false;
-    this.status = 0;
+    this.status = status || 0;
     this.choords = {
         x: x,
         y: y
