@@ -35,6 +35,7 @@ GameField.prototype.setStone = function(x, y) {
         this.gameField[x][y] = 2;
     }
     _moveEnd();
+    whiteIsNext = !whiteIsNext;
     return true;
 };
 
@@ -50,11 +51,8 @@ GameField.prototype.getNext = function() {
 };
 
 function _moveEnd() {
-    if (whiteIsNext) {
-        whiteIsNext = false;
-    } else {
-        whiteIsNext = true;
-    }
+    // TODO:
+    // update datastructure for score
 }
 
 
