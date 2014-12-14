@@ -23,6 +23,13 @@ GameField.prototype.createGameField = function(size) {
     }
 };
 
+GameField.prototype.getNext = function() {
+    if (whiteIsNext) {
+        return "white";
+    }
+    return "black";
+};
+
 
 module.exports = GameField;
 //.createGameField(9);
