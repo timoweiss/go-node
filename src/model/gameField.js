@@ -4,6 +4,7 @@ var Cell = require('./../model/cell');
 var Player = require('./../model/player');
 
 var events = require('events');
+var util = require("util");
 
 // bool to inicate who's next
 var whiteIsNext = false;
@@ -19,7 +20,7 @@ function GameField() {
     this.emit('newGameField');
 }
 
-GameField.prototype.__proto__ = events.EventEmitter.prototype;
+util.inherits(GameField, events.EventEmitter);
 
 GameField.prototype.createGameField = function(size) {
     this.gameField = [];
