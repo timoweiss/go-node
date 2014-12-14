@@ -11,7 +11,7 @@ function Controller() {
 Controller.prototype.createField = function(lenght) {
     operate = true;
     this.gameField = new GameField();
-    this.gameField.createGameField(lenght)
+    this.gameField.createGameField(lenght);
 };
 
 Controller.prototype.setStone = function(x, y) {
@@ -23,6 +23,12 @@ Controller.prototype.setStone = function(x, y) {
     if (this.gameField.setStone(x, y)) {
         console.log("set ", next, " at:", x, y);
     }
+};
+
+Controller.prototype.setListeners = function() {
+    this.gameField.on('setStone', function() {
+        console.log(arguments);
+    });
 };
 
 Controller.prototype.getWhitePlayerScore = function() {
