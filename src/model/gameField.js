@@ -1,5 +1,11 @@
 'use strict';
 
+// bool to inicate who's next
+var whiteIsNext = false;
+
+// bool pass var
+var pass = false;
+
 function GameField() {
     this.whitePlayer = null;
     this.blackPlayer = null;
