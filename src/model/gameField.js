@@ -18,7 +18,7 @@ GameField.prototype.createGameField = function(size) {
     for (i = 0; i < size; ++i) {
         this.gameField.push([]);
         for (j = 0; j < size; ++j) {
-            this.gameField[i].push([0]);
+            this.gameField[i].push(0);
         }
     }
 };
@@ -26,7 +26,7 @@ GameField.prototype.createGameField = function(size) {
 GameField.prototype.setStone = function(x, y) {
     if (x > this.gameField.length || y > this.gameField.length) {
         return false;
-    } else if (this.getCellStatus(x, y) === 0) {
+    } else if (this.getCellStatus(x, y) !== 0) {
         return false;
     }
     if (whiteIsNext) {
