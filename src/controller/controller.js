@@ -55,6 +55,10 @@ Controller.prototype.stop = function() {
     operate = false;
 };
 
+Controller.prototype.operate = function() {
+    return operate;
+};
+
 Controller.prototype.pass = function() {
     if (!operate) {
         //statusLine = "Game already closed, not allowed to pass";
