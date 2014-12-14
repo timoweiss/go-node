@@ -1,6 +1,6 @@
 {
     "name": "go-node",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "reimplemtation of our university project 'go' which was written in java",
     "main": "index.js",
     "scripts": {
