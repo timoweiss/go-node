@@ -1,10 +1,17 @@
 'use strict';
 
-var GameField = require('./src/model/GameField');
+var Controller = require('./src/controller/controller');
 
-var myGameField = new GameField();
-myGameField.createGameField(9);
+
+var myGameField = new Controller();
+
+
+myGameField.createField(9);
+
+
 console.log('before:', myGameField.getCellStatus(1, 2));
+
+return;
 myGameField.setStone(1, 2);
 myGameField.setStone(3, 2);
 myGameField.setStone(5, 2);
