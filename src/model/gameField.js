@@ -31,9 +31,10 @@ GameField.prototype.setStone = function(x, y) {
     }
     if (whiteIsNext) {
         this.gameField[x][y] = 1;
-        return true;
+    } else {
+        this.gameField[x][y] = 2;
     }
-    this.gameField[x][y] = 2;
+    _moveEnd();
     return true;
 };
 
@@ -47,6 +48,14 @@ GameField.prototype.getNext = function() {
     }
     return "black";
 };
+
+function _moveEnd() {
+    if (whiteIsNext) {
+        whiteIsNext = false;
+    } else {
+        whiteIsNext = true;
+    }
+}
 
 
 module.exports = GameField;
