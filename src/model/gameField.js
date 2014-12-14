@@ -23,6 +23,24 @@ GameField.prototype.createGameField = function(size) {
     }
 };
 
+GameField.prototype.setStone = function(x, y) {
+    if (x > this.gameField.length || y > this.gameField.length) {
+        return false;
+    } else if (this.getCellStatus(x, y) === 0) {
+        return false;
+    }
+    if (whiteIsNext) {
+        this.gameField[x][y] = 1;
+        return true;
+    }
+    this.gameField[x][y] = 2;
+    return true;
+};
+
+GameField.prototype.getCellStatus = function(x, y) {
+    return this.gameField[x][y];
+};
+
 GameField.prototype.getNext = function() {
     if (whiteIsNext) {
         return "white";
