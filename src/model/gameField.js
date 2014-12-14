@@ -3,6 +3,8 @@
 var Cell = require('./../model/cell');
 var Player = require('./../model/player');
 
+var events = require('events');
+
 // bool to inicate who's next
 var whiteIsNext = false;
 
@@ -13,7 +15,11 @@ function GameField() {
     this.whitePlayer = new Player();
     this.blackPlayer = new Player();
     this.gameField = [];
+    events.EventEmitter.call(this);
+    this.emit('newGameField');
 }
+
+GameField.prototype.__proto__ = events.EventEmitter.prototype;
 
 GameField.prototype.createGameField = function(size) {
     this.gameField = [];
@@ -33,8 +39,18 @@ GameField.prototype.setStone = function(x, y) {
         return false;
     }
     if (whiteIsNext) {
+        this.emit('setStone', {
+            x: x,
+            y: y,
+            color: 1
+        });
         this.gameField[x][y].setStatus(1);
     } else {
+        this.emit('setStone', {
+            x: x,
+            y: y,
+            color: 2
+        });
         this.gameField[x][y].setStatus(2);
     }
     moveEnd();
