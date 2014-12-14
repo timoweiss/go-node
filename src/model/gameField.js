@@ -1,5 +1,7 @@
 'use strict';
 
+var Cell = require('./../model/cell');
+
 // bool to inicate who's next
 var whiteIsNext = false;
 
@@ -18,7 +20,7 @@ GameField.prototype.createGameField = function(size) {
     for (i = 0; i < size; ++i) {
         this.gameField.push([]);
         for (j = 0; j < size; ++j) {
-            this.gameField[i].push(0);
+            this.gameField[i].push(new Cell(i, j));
         }
     }
 };
@@ -30,9 +32,9 @@ GameField.prototype.setStone = function(x, y) {
         return false;
     }
     if (whiteIsNext) {
-        this.gameField[x][y] = 1;
+        this.gameField[x][y].setStatus(1);
     } else {
-        this.gameField[x][y] = 2;
+        this.gameField[x][y].setStatus(2);
     }
     _moveEnd();
     whiteIsNext = !whiteIsNext;
@@ -40,7 +42,7 @@ GameField.prototype.setStone = function(x, y) {
 };
 
 GameField.prototype.getCellStatus = function(x, y) {
-    return this.gameField[x][y];
+    return this.gameField[x][y].getStatus();
 };
 
 GameField.prototype.getNext = function() {
