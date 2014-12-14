@@ -53,6 +53,16 @@ GameField.prototype.getNext = function() {
     return "black";
 };
 
+GameField.prototype.resetAllChecked = function() {
+
+    this.gameField.forEach(function(row) {
+        row.forEach(function(cell) {
+            cell.resetChecked();
+        });
+    });
+
+};
+
 function _moveEnd() {
     // TODO:
     // update datastructure for score
