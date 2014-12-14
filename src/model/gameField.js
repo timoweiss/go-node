@@ -31,6 +31,8 @@ GameField.prototype.createGameField = function(size) {
             this.gameField[i].push(new Cell(i, j));
         }
     }
+
+    this.emit('createGameField');
 };
 
 GameField.prototype.setStone = function(x, y) {
@@ -77,6 +79,7 @@ GameField.prototype.resetAllChecked = function() {
             cell.resetChecked();
         });
     });
+    this.emit('resetAllChecked');
 
 };
 
@@ -109,6 +112,7 @@ GameField.prototype.pass = function() {
     }
     pass = true;
 
+    this.emit('pass');
     return !pass;
 };
 
