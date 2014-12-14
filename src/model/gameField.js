@@ -37,7 +37,7 @@ GameField.prototype.setStone = function(x, y) {
     } else {
         this.gameField[x][y].setStatus(2);
     }
-    _moveEnd();
+    moveEnd();
     whiteIsNext = !whiteIsNext;
     return true;
 };
@@ -63,9 +63,21 @@ GameField.prototype.resetAllChecked = function() {
 
 };
 
-function _moveEnd() {
-    // TODO:
-    // update datastructure for score
+GameField.prototype.fenced = function(x, y) {
+    // TODO implement
+};
+
+GameField.prototype.deepSearch = function(x, y) {
+    // TODO implement
+};
+
+GameField.prototype.rememberMe = function(x, y) {
+    // TODO switch index
+    this.gameField[x][y].setChecked();
+};
+
+function moveEnd() {
+    // TODO: implement
 }
 
 
